@@ -1194,7 +1194,7 @@ msgstr "%C22*%O$tVous avez invité%C26 $1%O à%C26 $2%O (%C26$3%O)"
 
 #: src/common/textevents.h:423
 msgid "%C22*%O$tYou are now known as $2"
-msgstr "%C22*%O$tVous-vous appelez maintenant $2"
+msgstr "%C22*%O$tVous vous appelez maintenant $2"
 
 #: src/common/text.c:347
 msgid "Loaded log from"
@@ -4795,7 +4795,7 @@ msgstr "Complétion des pseudonymes"
 #: src/fe-gtk/setup.c:144
 msgid "Automatic nick completion (without TAB key)"
 msgstr ""
-"Complétion automatique des pseudonymes (sans utilisation de la tocuhe de "
+"Complétion automatique des pseudonymes (sans utilisation de la touche de "
 "tabulation)"
 
 #: src/fe-gtk/setup.c:146

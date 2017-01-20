@@ -161,22 +161,48 @@ static void
 editlist_gui_save (GtkWidget * igad)
 {
 	int fh, i = 0;
+	ssize_t nb;
 	char buf[512];
 	char *a, *b;
 
-	fh = xchat_open_file (editlist_file, O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
+	char *file_tmp = malloc( strlen( editlist_file ) + strlen( ".bug147832" ) + 1 );
+	if( ! file_tmp )
+		return;
+
+	fh = xchat_open_file (file_tmp, O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
 	if (fh != -1)
 	{
+		nb = 1;
 		while (1)
 		{
 			if (!gtk_clist_get_text (GTK_CLIST (editlist_gui_list), i, 0, &a))
 				break;
 			gtk_clist_get_text (GTK_CLIST (editlist_gui_list), i, 1, &b);
 			snprintf (buf, sizeof (buf), "NAME %s\nCMD %s\n\n", a, b);
-			write (fh, buf, strlen (buf));
+			if( nb > 0 ) nb = write (fh, buf, strlen (buf));
 			i++;
 		}
-		close (fh);
+		if( nb <= 0 )
+		{
+			fprintf( stderr, "editlist_gui_save: write() failed\n" );
+			close( fh );
+			free( file_tmp );
+			return;
+		}
+		if( close (fh) != 0 )
+		{
+			perror( "editlist_gui_save: close() failed" );
+			free( file_tmp );
+			return;
+		}
+		if( xchat_rename_file( file_tmp, editlist_file, XOF_DOMODE ) != 0 )
+		{
+			perror( "editlist_gui_save: xchat_rename_file() failed" );
+			free( file_tmp );
+			return;
+		}
+		free( file_tmp );
+
 		gtk_widget_destroy (editlist_gui_window);
 		if (editlist_list == replace_list)
 		{

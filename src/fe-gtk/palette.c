@@ -202,25 +202,45 @@ void
 palette_save (void)
 {
 	int i, j, fh;
+	ssize_t nb;
 	char prefname[256];
 
-	fh = xchat_open_file ("colors.conf", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
+	fh = xchat_open_file ("colors.conf.bug147832", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
 	if (fh != -1)
 	{
+		nb = 1;
+
 		/* mIRC colors 0-31 are here */
 		for (i = 0; i < 32; i++)
 		{
 			snprintf (prefname, sizeof prefname, "color_%d", i);
-			cfg_put_color (fh, colors[i].red, colors[i].green, colors[i].blue, prefname);
+			if( nb > 0 ) nb = cfg_put_color (fh, colors[i].red, colors[i].green, colors[i].blue, prefname);
 		}
 
 		/* our special colors are mapped at 256+ */
 		for (i = 256, j = 32; j < MAX_COL+1; i++, j++)
 		{
 			snprintf (prefname, sizeof prefname, "color_%d", i);
-			cfg_put_color (fh, colors[j].red, colors[j].green, colors[j].blue, prefname);
+			if( nb > 0 ) nb = cfg_put_color (fh, colors[j].red, colors[j].green, colors[j].blue, prefname);
 		}
 
-		close (fh);
+		if( nb <= 0 )
+		{
+			fprintf( stderr, "palette_save: cfg_put_color failed\n" );
+			close( fh );
+			return;
+		}
+
+		if( close (fh) != 0 )
+		{
+			perror( "palette_save: close() failed\n" );
+			return;
+		}
+
+		if( xchat_rename_file( "colors.conf.bug147832", "colors.conf", XOF_DOMODE ) != 0 )
+		{
+			perror( "palette_save: xchat_rename_file() failed" );
+			return;
+		}
 	}
 }

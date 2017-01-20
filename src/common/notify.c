@@ -121,25 +121,47 @@ void
 notify_save (void)
 {
 	int fh;
+	ssize_t nb;
 	struct notify *notify;
 	GSList *list = notify_list;
 
-	fh = xchat_open_file ("notify.conf", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
-	if (fh != -1)
+	fh = xchat_open_file ("notify.conf.bug147832", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
+	if( fh == -1 )
 	{
+		perror( "notify_save: xchat_open_file failed" );
+		return;
+	}
+	else
+	{
+		nb = 1;
 		while (list)
 		{
 			notify = (struct notify *) list->data;
-			write (fh, notify->name, strlen (notify->name));
+			if( nb > 0 ) nb = write (fh, notify->name, strlen (notify->name));
 			if (notify->networks)
 			{
-				write (fh, " ", 1);
-				write (fh, notify->networks, strlen (notify->networks));
+				if( nb > 0 ) nb = write (fh, " ", 1);
+				if( nb > 0 ) nb = write (fh, notify->networks, strlen (notify->networks));
 			}
-			write (fh, "\n", 1);
+			if( nb > 0 ) nb = write (fh, "\n", 1);
 			list = list->next;
 		}
-		close (fh);
+		if( nb <= 0 )
+		{
+			fprintf( stderr, "notify_save: fprintf() failed\n" );
+			close( fh );
+			return;
+		}
+		if( close (fh) != 0 )
+		{
+			perror( "notify_save: close failed" );
+			return;
+		}
+		if( xchat_rename_file( "notify.conf.bug147832", "notify.conf", XOF_DOMODE ) != 0 )
+		{
+			perror( "notify_save: xchat_rename_file() failed" );
+			return;
+		}
 	}
 }
 

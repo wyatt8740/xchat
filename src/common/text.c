@@ -28,7 +28,7 @@
 #include <sys/mman.h>
 
 #include "xchat.h"
-#include <glib/ghash.h>
+#include <glib.h>
 #include "cfgfiles.h"
 #include "chanopt.h"
 #include "plugin.h"
@@ -2089,15 +2089,26 @@ text_emit_by_name (char *name, session *sess, char *a, char *b, char *c, char *d
 void
 pevent_save (char *fn)
 {
-	int fd, i;
+	int fd, i, rc;
+	ssize_t nb;
+	char *file_tmp = NULL;
 	char buf[1024];
 
 	if (!fn)
-		fd = xchat_open_file ("pevents.conf", O_CREAT | O_TRUNC | O_WRONLY,
+		fd = xchat_open_file ("pevents.conf.bug147832", O_CREAT | O_TRUNC | O_WRONLY,
 									 0x180, XOF_DOMODE);
 	else
-		fd = xchat_open_file (fn, O_CREAT | O_TRUNC | O_WRONLY, 0x180,
+	{
+		file_tmp = malloc( strlen( fn ) + strlen( ".bug147832" ) + 1 );
+		if( ! file_tmp )
+			return;
+		strcpy( file_tmp, fn );
+		strcat( file_tmp, ".bug147832" );
+
+		fd = xchat_open_file (file_tmp, O_CREAT | O_TRUNC | O_WRONLY, 0x180,
 									 XOF_FULLPATH | XOF_DOMODE);
+	}
+
 	if (fd == -1)
 	{
 		/*
@@ -2107,18 +2118,52 @@ pevent_save (char *fn)
 		 */
 
 		perror ("Error opening config file\n");
+		if( ! file_tmp )
+			free( file_tmp );
 		return;
 	}
 
+	nb = 1;
 	for (i = 0; i < NUM_XP; i++)
 	{
-		write (fd, buf, snprintf (buf, sizeof (buf),
+		if( nb > 0 ) nb = write (fd, buf, snprintf (buf, sizeof (buf),
 										  "event_name=%s\n", te[i].name));
-		write (fd, buf, snprintf (buf, sizeof (buf),
+		if( nb > 0 ) nb = write (fd, buf, snprintf (buf, sizeof (buf),
 										  "event_text=%s\n\n", pntevts_text[i]));
 	}
 
-	close (fd);
+	if( nb <= 0 )
+	{
+		fprintf( stderr, "pevent_save: write() failed\n" );
+		close( fd );
+		if( file_tmp )
+			free( file_tmp );
+		return;
+	}
+
+	if( close (fd) != 0 )
+	{
+		perror( "pevent_save: close() failed" );
+		if( file_tmp )
+			free( file_tmp );
+		return;
+	}
+
+	if( ! fn )
+		rc = xchat_rename_file( "pevents.conf.bug147832", "pevents.conf", XOF_DOMODE );
+	else
+		rc = xchat_rename_file( file_tmp, fn, XOF_FULLPATH | XOF_DOMODE );
+
+	if( rc != 0 )
+	{
+		perror( "pevent_save: xchat_rename_file() failed" );
+		if( file_tmp )
+			free( file_tmp );
+		return;
+	}
+
+	if( file_tmp )
+		free( file_tmp );
 }
 
 /* =========================== */
@@ -2287,23 +2332,43 @@ void
 sound_save ()
 {
 	int fd, i;
+	ssize_t nb;
 	char buf[512];
 
-	fd = xchat_open_file ("sound.conf", O_CREAT | O_TRUNC | O_WRONLY, 0x180,
+	fd = xchat_open_file ("sound.conf.bug147832", O_CREAT | O_TRUNC | O_WRONLY, 0x180,
 								 XOF_DOMODE);
 	if (fd == -1)
 		return;
+
+	nb = 1;
 
 	for (i = 0; i < NUM_XP; i++)
 	{
 		if (sound_files[i] && sound_files[i][0])
 		{
-			write (fd, buf, snprintf (buf, sizeof (buf),
+			if( nb > 0 ) nb = write (fd, buf, snprintf (buf, sizeof (buf),
 											  "event=%s\n", te[i].name));
-			write (fd, buf, snprintf (buf, sizeof (buf),
+			if( nb > 0 ) nb = write (fd, buf, snprintf (buf, sizeof (buf),
 											  "sound=%s\n\n", sound_files[i]));
 		}
 	}
 
-	close (fd);
+	if( nb <= 0 )
+	{
+		fprintf( stderr, "sound_save: write() failed\n" );
+		close( fd );
+		return;
+	}
+
+	if( close (fd) != 0 )
+	{
+		perror( "sound_save: close() failed" );
+		return;
+	}
+
+	if( xchat_rename_file( "sound.conf.bug147832", "sound.conf", XOF_DOMODE ) != 0 )
+	{
+		perror( "sound_save: xchat_rename_file() failed" );
+		return;
+	}
 }

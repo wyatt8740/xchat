@@ -176,19 +176,27 @@ tree_remove (tree *t, void *key, int *pos)
 	return 1;
 }
 
-void
-tree_foreach (tree *t, tree_traverse_func *func, void *data)
+int
+tree_foreach_int (tree *t, tree_traverse_func *func, void *data)
 {
 	int j;
 
 	if (!t || !t->array)
-		return;
+		return 1;
 
 	for (j = 0; j < t->elements; j++)
 	{
 		if (!func (t->array[j], data))
-			break;
+			return 0;
 	}
+
+	return 1;
+}
+
+void
+tree_foreach (tree *t, tree_traverse_func *func, void *data)
+{
+	tree_foreach_int( t, func, data );
 }
 
 int

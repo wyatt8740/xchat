@@ -136,8 +136,31 @@ url_button_copy (GtkWidget *widget, gpointer data)
 static void
 url_save_callback (void *arg1, char *file)
 {
-	if (file)
-		url_save (file, "w", TRUE);
+	if( ! file )
+		return;
+
+	char *file_tmp = malloc( strlen( file ) + strlen( ".bug147832" ) + 1 );
+	if( ! file_tmp )
+		return;
+
+	strcpy( file_tmp, file );
+	strcat( file_tmp, ".bug147832" );
+
+	if( url_save( file_tmp, "w", TRUE ) != TRUE )
+	{
+		fprintf( stderr, "url_save_callback: url_save failed (%s)\n", file_tmp );
+		free( file_tmp );
+		return;
+	}
+
+	if( xchat_rename_file( file_tmp, file, XOF_FULLPATH ) != 0 )
+	{
+		perror( "url_save_callback: xchat_rename_file() failed" );
+		free( file_tmp );
+		return;
+	}
+
+	free( file_tmp );
 }
 
 static void

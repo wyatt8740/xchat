@@ -387,6 +387,8 @@ const struct prefs vars[] = {
 	{"completion_sort", P_OFFINT (completion_sort), TYPE_INT},
 	{"completion_suffix", P_OFFSET (nick_suffix), TYPE_STR},
 
+	{"completion_cinsens", P_OFFINT (completion_cinsens), TYPE_BOOL},
+
 	{"dcc_auto_chat", P_OFFINT (autodccchat), TYPE_INT},
 	{"dcc_auto_resume", P_OFFINT (autoresume), TYPE_BOOL},
 	{"dcc_auto_send", P_OFFINT (autodccsend), TYPE_INT},
@@ -1089,6 +1091,20 @@ xchat_open_file (char *file, int flags, int mode, int xof_flags)
 		return open (buf, flags | OFLAGS, mode);
 	else
 		return open (buf, flags | OFLAGS);
+}
+
+int
+xchat_rename_file (char *oldpath, char *newpath, int xof_flags)
+{
+	char bufoldpath[1024];
+	char bufnewpath[1024];
+
+	if (xof_flags & XOF_FULLPATH)
+		return rename (oldpath, newpath);
+
+	snprintf (bufoldpath, sizeof (bufoldpath), "%s/%s", get_xdir_fs (), oldpath);
+	snprintf (bufnewpath, sizeof (bufnewpath), "%s/%s", get_xdir_fs (), newpath);
+	return rename (bufoldpath, bufnewpath);
 }
 
 FILE *

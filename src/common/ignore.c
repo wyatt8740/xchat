@@ -304,11 +304,12 @@ void
 ignore_save ()
 {
 	char buf[1024];
-	int fh;
+	int fh, rc;
+	ssize_t nb;
 	GSList *temp = ignore_list;
 	struct ignore *ig;
 
-	fh = xchat_open_file ("ignore.conf", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
+	fh = xchat_open_file ("ignore.conf.bug463072", O_TRUNC | O_WRONLY | O_CREAT, 0600, XOF_DOMODE);
 	if (fh != -1)
 	{
 		while (temp)
@@ -318,11 +319,28 @@ ignore_save ()
 			{
 				snprintf (buf, sizeof (buf), "mask = %s\ntype = %d\n\n",
 							 ig->mask, ig->type);
-				write (fh, buf, strlen (buf));
+				nb = write (fh, buf, strlen (buf));
+				if( nb == (ssize_t)-1 )
+				{
+					perror( "ignore_save: write() failed" );
+					close( fh );
+					return;
+				}
 			}
 			temp = temp->next;
 		}
-		close (fh);
+		rc = close (fh);
+		if( rc != 0 )
+		{
+			perror( "ignore_save: close() failed" );
+			return;
+		}
+		rc = xchat_rename_file( "ignore.conf.bug463072", "ignore.conf", XOF_DOMODE );
+		if( rc != 0 )
+		{
+			perror( "ignore_save: xchat_rename_file() failed" );
+			return;
+		}
 	}
 
 }

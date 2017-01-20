@@ -50,11 +50,12 @@ url_clear (void)
 static int
 url_save_cb (char *url, FILE *fd)
 {
-	fprintf (fd, "%s\n", url);
+	if( fprintf (fd, "%s\n", url) <= 0 )
+		return FALSE;
 	return TRUE;
 }
 
-void
+int
 url_save (const char *fname, const char *mode, gboolean fullpath)
 {
 	FILE *fd;
@@ -64,10 +65,18 @@ url_save (const char *fname, const char *mode, gboolean fullpath)
 	else
 		fd = xchat_fopen_file (fname, mode, 0);
 	if (fd == NULL)
-		return;
+		return FALSE;
 
-	tree_foreach (url_tree, (tree_traverse_func *)url_save_cb, fd);
-	fclose (fd);
+	if( tree_foreach_int (url_tree, (tree_traverse_func *)url_save_cb, fd) == 0 )
+	{
+		fclose (fd);
+		return FALSE;
+	}
+
+	if( fclose (fd) )
+		return FALSE;
+
+	return TRUE;
 }
 
 void

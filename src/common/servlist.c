@@ -24,7 +24,7 @@
 #include <unistd.h>
 
 #include "xchat.h"
-#include <glib/ghash.h>
+#include <glib.h>
 
 #include "cfgfiles.h"
 #include "fe.h"
@@ -46,6 +46,12 @@ struct defaultserver
 
 static const struct defaultserver def[] =
 {
+	{"Debian Servers", 0, "#debian"},
+	{0,                     "irc.debian.org"},
+
+	{"Ubuntu Servers", 0, "#ubuntu"},
+	{0,                     "irc.ubuntu.com"},
+
 	{"2600net",	0},
 	{0,			"irc.2600.net"},
 
@@ -924,7 +930,7 @@ servlist_load_defaults (void)
 				free (net->encoding);
 				net->encoding = strdup (def[i].charset);
 			}
-			if (g_str_hash (def[i].network) == 0x8e1b96f7)
+			if (g_str_hash (def[i].network) == 0x37473b25)
 				prefs.slist_select = j;
 			j++;
 		} else
@@ -1066,6 +1072,7 @@ int
 servlist_save (void)
 {
 	FILE *fp;
+	int nb;
 	char buf[256];
 	ircnet *net;
 	ircserver *serv;
@@ -1074,12 +1081,12 @@ servlist_save (void)
 #ifndef WIN32
 	int first = FALSE;
 
-	snprintf (buf, sizeof (buf), "%s/servlist_.conf", get_xdir_fs ());
+	snprintf (buf, sizeof (buf), "%s/servlist_.conf.bug147832", get_xdir_fs ());
 	if (access (buf, F_OK) != 0)
 		first = TRUE;
 #endif
 
-	fp = xchat_fopen_file ("servlist_.conf", "w", 0);
+	fp = xchat_fopen_file ("servlist_.conf.bug147832", "w", 0);
 	if (!fp)
 		return FALSE;
 
@@ -1087,32 +1094,32 @@ servlist_save (void)
 	if (first)
 		chmod (buf, 0600);
 #endif
-	fprintf (fp, "v="PACKAGE_VERSION"\n\n");
+	nb = fprintf (fp, "v="PACKAGE_VERSION"\n\n");
 
 	list = network_list;
 	while (list)
 	{
 		net = list->data;
 
-		fprintf (fp, "N=%s\n", net->name);
+		if( nb > 0 ) nb = fprintf (fp, "N=%s\n", net->name);
 		if (net->nick)
-			fprintf (fp, "I=%s\n", net->nick);
+			if( nb > 0 ) nb = fprintf (fp, "I=%s\n", net->nick);
 		if (net->nick2)
-			fprintf (fp, "i=%s\n", net->nick2);
+			if( nb > 0 ) nb = fprintf (fp, "i=%s\n", net->nick2);
 		if (net->user)
-			fprintf (fp, "U=%s\n", net->user);
+			if( nb > 0 ) nb = fprintf (fp, "U=%s\n", net->user);
 		if (net->real)
-			fprintf (fp, "R=%s\n", net->real);
+			if( nb > 0 ) nb = fprintf (fp, "R=%s\n", net->real);
 		if (net->pass)
-			fprintf (fp, "P=%s\n", net->pass);
+			if( nb > 0 ) nb = fprintf (fp, "P=%s\n", net->pass);
 		if (net->autojoin)
-			fprintf (fp, "J=%s\n", net->autojoin);
+			if( nb > 0 ) nb = fprintf (fp, "J=%s\n", net->autojoin);
 		if (net->nickserv)
-			fprintf (fp, "B=%s\n", net->nickserv);
+			if( nb > 0 ) nb = fprintf (fp, "B=%s\n", net->nickserv);
 		if (net->encoding && strcasecmp (net->encoding, "System") &&
 			 strcasecmp (net->encoding, "System default"))
 		{
-			fprintf (fp, "E=%s\n", net->encoding);
+			if( nb > 0 ) nb = fprintf (fp, "E=%s\n", net->encoding);
 			if (!servlist_check_encoding (net->encoding))
 			{
 				snprintf (buf, sizeof (buf), _("Warning: \"%s\" character set is unknown. No conversion will be applied for network %s."),
@@ -1122,28 +1129,44 @@ servlist_save (void)
 		}
 
 		if (net->command)
-			token_foreach (net->command, '\n', servlist_write_ccmd, fp);
+			if( nb > 0 )
+				if( token_foreach (net->command, '\n', servlist_write_ccmd, fp) != TRUE )
+					nb = -1;
 
-		fprintf (fp, "F=%d\nD=%d\n", net->flags, net->selected);
+		if( nb > 0 ) nb = fprintf (fp, "F=%d\nD=%d\n", net->flags, net->selected);
 
 		hlist = net->servlist;
 		while (hlist)
 		{
 			serv = hlist->data;
-			fprintf (fp, "S=%s\n", serv->hostname);
+			if( nb > 0 ) nb = fprintf (fp, "S=%s\n", serv->hostname);
 			hlist = hlist->next;
 		}
 
-		if (fprintf (fp, "\n") < 1)
-		{
-			fclose (fp);
-			return FALSE;
-		}
+		if( nb > 0 ) nb = fprintf (fp, "\n");
 
 		list = list->next;
 	}
 
-	fclose (fp);
+	if( nb <= 0 )
+	{
+		fprintf( stderr, "servlist_save: fprintf() failed\n" );
+		fclose( fp );
+		return FALSE;
+	}
+
+	if( fclose (fp) != 0 )
+	{
+		perror( "servlist_save: fclose() failed" );
+		return FALSE;
+	}
+
+	if( xchat_rename_file( "servlist_.conf.bug147832", "servlist_.conf", 0 ) != 0 )
+	{
+		perror( "servlist_save: xchat_rename_file() failed" );
+		return FALSE;
+	}
+
 	return TRUE;
 }
 
