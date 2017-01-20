@@ -1,0 +1,2 @@
+This builds in debian sid as of 19 January 2017.
+You might need to add '-lgmodule-2.0' to your link flags (LDFLAGS) to make this compile properly.
