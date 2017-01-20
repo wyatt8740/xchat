@@ -136,10 +136,8 @@ int
 _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 {
 	X509 *peer_cert;
-/* this needed fixing for openSSL 1.1.0 --wyatt */
 	X509_PUBKEY *key;
 	X509_ALGOR *algor = NULL;
-/* end of fix pt. 1 */
 	EVP_PKEY *peer_pkey;
 	/* EVP_PKEY *ca_pkey; */
 	/* EVP_PKEY *tmp_pkey; */
@@ -159,22 +157,16 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 	broke_oneline (cert_info->subject, cert_info->subject_word);
 	broke_oneline (cert_info->issuer, cert_info->issuer_word);
 
-/* broke */
-/*	alg = OBJ_obj2nid (peer_cert->cert_info->key->algor->algorithm); */
 	key = X509_get_X509_PUBKEY(peer_cert);
 	if (!X509_PUBKEY_get0_param(NULL, NULL, 0, &algor, key))
 		return 1;
 	alg = OBJ_obj2nid (algor->algorithm);
-/* end of fix pt.1 */
 
-/* openssl 1.1.0 broke this. --Wyatt */
-/*	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm); */
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
  	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm);
 #else
 	sign_alg = X509_get_signature_nid (peer_cert);
 #endif
-/* end of fix pt.2 */
 	ASN1_TIME_snprintf (notBefore, sizeof (notBefore),
 							  X509_get_notBefore (peer_cert));
 	ASN1_TIME_snprintf (notAfter, sizeof (notAfter),
@@ -189,7 +181,6 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 	strncpy (cert_info->sign_algorithm,
 				(sign_alg == NID_undef) ? "Unknown" : OBJ_nid2ln (sign_alg),
 				sizeof (cert_info->sign_algorithm));
-	/* EVP_PKEY_bits(ca_pkey)); */
 	cert_info->sign_algorithm_bits = 0;
 	strncpy (cert_info->notbefore, notBefore, sizeof (cert_info->notbefore));
 	strncpy (cert_info->notafter, notAfter, sizeof (cert_info->notafter));
@@ -292,16 +283,12 @@ SSL *
 _SSL_socket (SSL_CTX *ctx, int sd)
 {
 	SSL *ssl;
-	/* Wyatt added */
 	const SSL_METHOD *method;
-	/* end of addition */
 	if (!(ssl = SSL_new (ctx)))
 		/* FATAL */
 		__SSL_critical_error ("SSL_new");
 
 	SSL_set_fd (ssl, sd);
-/*	OpenSSL 1.1.0 broke this --wyatt */
-/*	if (ctx->method == SSLv23_client_method()) */
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
 	method = ctx->method;
 #else
@@ -309,7 +296,6 @@ _SSL_socket (SSL_CTX *ctx, int sd)
 #endif
 	if (method == SSLv23_client_method())
 
-/* end of fix */
 		SSL_set_connect_state (ssl);
 	else
 	        SSL_set_accept_state(ssl);
