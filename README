@@ -1,3 +1,26 @@
+What is this repo?
+~~~~~~~~~~~~~~~~~~
+This is Xchat 2.8.8, with all the Debian Jessie patches applied, as well
+as some fixes manually pulled from hexchat for building against OpenSSL
+1.1.0. The goal of my version of XChat is to keep it buildable on newer
+Linux/Unix/Cygwin systems than the last release of XChat is compatible
+with.
+
+I do not just use Hexchat because I don't like some of the UI changes
+that it introduced.
+
+As of the last update to this readme (21 January 2017), the final link
+of the xchat binary fails due to it needing '-lgmodule-2.0' added to its
+linking flags. Until this gets fixed in source (I'll need to learn about
+autoconf for that to happen, I think), it can be done manually by adding
+that flag to the Makefile or running the configure script with
+`LDFLAGS=-lgmodule-2.0` set as an environment variable.
+
+With that caveat, it currently builds and runs in Debian Sid as of
+21 January 2017.
+
+Original README contents are below.
+
 X-Chat README
 ~~~~~~~~~~~~~
  X-Chat ("xchat") Copyright (c) 1998-2010 By Peter Zelezny.
