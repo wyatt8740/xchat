@@ -19,6 +19,13 @@ that flag to the Makefile or running the configure script with
 With that caveat, it currently builds and runs in Debian Sid as of
 21 January 2017.
 
+As of 26 May 2019, it still builds in FreeBSD stable with:
+
+MAKE="gmake" LDFLAGS='-L/usr/local/lib -lgmodule-2.0' ./configure \
+    --prefix=/usr/local --disable-dbus
+
+...so we may still have some time ahead of us.
+
 Original README contents are below.
 
 X-Chat README
