@@ -136,8 +136,10 @@ int
 _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 {
 	X509 *peer_cert;
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L
 	X509_PUBKEY *key;
 	X509_ALGOR *algor = NULL;
+#endif
 	EVP_PKEY *peer_pkey;
 	/* EVP_PKEY *ca_pkey; */
 	/* EVP_PKEY *tmp_pkey; */
@@ -157,14 +159,16 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 	broke_oneline (cert_info->subject, cert_info->subject_word);
 	broke_oneline (cert_info->issuer, cert_info->issuer_word);
 
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
+/* Old OpenSSL */
+	alg = OBJ_obj2nid (peer_cert->cert_info->key->algor->algorithm);
+	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm);
+#else
+/* New OpenSSL */
 	key = X509_get_X509_PUBKEY(peer_cert);
 	if (!X509_PUBKEY_get0_param(NULL, NULL, 0, &algor, key))
 		return 1;
 	alg = OBJ_obj2nid (algor->algorithm);
-
-#if OPENSSL_VERSION_NUMBER < 0x10100000L
- 	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm);
-#else
 	sign_alg = X509_get_signature_nid (peer_cert);
 #endif
 	ASN1_TIME_snprintf (notBefore, sizeof (notBefore),
@@ -284,18 +288,21 @@ _SSL_socket (SSL_CTX *ctx, int sd)
 {
 	SSL *ssl;
 	const SSL_METHOD *method;
+
+
 	if (!(ssl = SSL_new (ctx)))
 		/* FATAL */
 		__SSL_critical_error ("SSL_new");
 
 	SSL_set_fd (ssl, sd);
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
+/* Old OpenSSL */
 	method = ctx->method;
 #else
+/* New OpenSSL */
 	method = SSL_CTX_get_ssl_method (ctx);
 #endif
 	if (method == SSLv23_client_method())
-
 		SSL_set_connect_state (ssl);
 	else
 	        SSL_set_accept_state(ssl);
