@@ -11,6 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2007-12-13 00:21+0700\n"
 "Last-Translator: Seksan Poltree <seksan.poltree@gmail.com>\n"
 "Language-Team: Thai <translation-team-th@lists.sourceforge.net>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -823,8 +824,8 @@ msgstr "%C24,18 ชนิด  ไปยัง/จาก    สถานะ  ข�
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
 "%C22*%O$tได้รับการร้องขอ DCC ที่ผิดรูปแบบจาก %C26$1%O.%010%C22*%O$tเนื้อหาของแพ็กเก็ต: "
 "$2"

@@ -2,11 +2,11 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT([XChat],[2.8.8],[http://www.xchat.org/],[xchat])
 
-AC_PREREQ([2.59])
+AC_PREREQ([2.71])
 AC_COPYRIGHT([Copyright (C) 1998-2010 Peter Zelezny])
 
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_SRCDIR([configure.in])
+AC_CONFIG_SRCDIR([configure.ac])
 
 AM_INIT_AUTOMAKE([1.9 dist-bzip2 subdir-objects no-define])
 
@@ -15,8 +15,8 @@ AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_CPP
 AM_PROG_AS
-AM_DISABLE_STATIC
-AC_PROG_LIBTOOL
+AC_DISABLE_STATIC([])
+LT_INIT
 
 dnl -----------------------------------------------------------
 dnl Language Support
@@ -26,7 +26,12 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[Gettext package name])
 
 ALL_LINGUAS="be ca cs de el es fi fr gl hu it ja kn ko lt mk nl pa pl pt ru sq sr sv th uk vi zh_CN zh_TW"
-AM_GNU_GETTEXT
+AM_GNU_GETTEXT_VERSION(0.20)
+AM_GNU_GETTEXT([external])
+#USE_INCLUDED_LIBINTL="no"
+#AC_SUBST(USE_INCLUDED_LIBINTL)
+#BUILD_INCLUDED_LIBINTL="no"
+#AC_SUBST(BUILD_INCLUDED_LIBINTL)
 
 dnl displaced from acconfig.h
 AH_VERBATIM([OLD_PERL],[#undef OLD_PERL])
@@ -302,16 +307,16 @@ if test "$python" = yes; then
         else
                 AC_MSG_CHECKING(Python version)
                 changequote(<<, >>)dnl
-                PY_VER=`$pythonpath -c 'import distutils.sysconfig; print distutils.sysconfig.get_config_vars("VERSION")[0];'`
-                PY_LIB=`$pythonpath -c 'import distutils.sysconfig; print distutils.sysconfig.get_python_lib(standard_lib=1);'`
-                PY_INC=`$pythonpath -c 'import distutils.sysconfig; print distutils.sysconfig.get_config_vars("INCLUDEPY")[0];'`
+                PY_VER=`$pythonpath -c 'import distutils.sysconfig; print(distutils.sysconfig.get_config_vars("VERSION")[0]);'`
+                PY_LIB=`$pythonpath -c 'import distutils.sysconfig; print(distutils.sysconfig.get_python_lib(standard_lib=1));'`
+                PY_INC=`$pythonpath -c 'import distutils.sysconfig; print(distutils.sysconfig.get_config_vars("INCLUDEPY")[0]);'`
                 $pythonpath -c "import sys; map(int,sys.version[:3].split('.')) >= [2,2] or sys.exit(1)"
                 changequote([, ])dnl
                 AC_MSG_RESULT($PY_VER)
                 if test "$?" != "1"; then
                         AC_MSG_CHECKING(Python compile flags)
-                        PY_PREFIX=`$pythonpath -c 'import sys; print sys.prefix'`
-                        PY_EXEC_PREFIX=`$pythonpath -c 'import sys; print sys.exec_prefix'`
+                        PY_PREFIX=`$pythonpath -c 'import sys; print(sys.prefix)'`
+                        PY_EXEC_PREFIX=`$pythonpath -c 'import sys; print(sys.exec_prefix)'`
                         if test -f $PY_INC/Python.h; then
                                 PY_LIBS="-L$PY_LIB/config -lpython$PY_VER -lpthread -lutil"
                                 PY_CFLAGS="-I$PY_INC"
@@ -643,13 +648,12 @@ AC_MSG_CHECKING([if gcc accepts -Wno-pointer-sign ])
 safe_CFLAGS=$CFLAGS
 CFLAGS="-Wno-pointer-sign"
 
-AC_TRY_COMPILE(, [
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
 int main () { return 0 ; }
-],
-[
+]])],[
 no_pointer_sign=yes
 AC_MSG_RESULT([yes])
-], [
+],[
 no_pointer_sign=no
 AC_MSG_RESULT([no])
 ])
@@ -665,13 +669,12 @@ AC_MSG_CHECKING([if gcc accepts -funsigned-char ])
 safe_CFLAGS=$CFLAGS
 CFLAGS="-funsigned-char"
 
-AC_TRY_COMPILE(, [
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
 int main () { return 0 ; }
-],
-[
+]])],[
 unsigned_char=yes
 AC_MSG_RESULT([yes])
-], [
+],[
 unsigned_char=no
 AC_MSG_RESULT([no])
 ])
@@ -688,16 +691,12 @@ dnl *********************************************************************
 AC_MSG_CHECKING(for modern sigaction)
 dnl libc5 on linux and FreeBSD 3.x doesn't have siginfo_t
 dnl and the sa_sigation field.
-AC_TRY_COMPILE(
-	[#include <signal.h>],
-	[struct sigaction act;
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <signal.h>]], [[struct sigaction act;
 	 siginfo_t *si;
-	 act.sa_sigaction = 0;],
-	[
+	 act.sa_sigaction = 0;]])],[
 		AC_MSG_RESULT(yes)
 		AC_DEFINE(USE_SIGACTION) 
-	],
-	AC_MSG_RESULT(no))
+	],[AC_MSG_RESULT(no)])
 
 AC_PATH_PROG(gdkpixbufcsourcepath, gdk-pixbuf-csource)
 AC_SUBST(gdkpixbufcsourcepath)
@@ -778,8 +777,9 @@ dnl for plugins/xxx/Makefile.am
 xchatlibdir=${libdir}/xchat
 AC_SUBST(xchatlibdir)
 
-AC_OUTPUT([
-Makefile
+#AC_CONFIG_FILES([ po/Makefile.in
+#intl/Makefile
+AC_CONFIG_FILES([ Makefile
 src/Makefile
 src/common/Makefile
 src/common/dbus/Makefile
@@ -790,9 +790,9 @@ plugins/Makefile
 plugins/python/Makefile
 plugins/perl/Makefile
 plugins/tcl/Makefile
-intl/Makefile
 po/Makefile.in
 ])
+AC_OUTPUT
 
 echo
 echo xchat $VERSION

@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2007-06-26 11:42+0200\n"
 "Last-Translator: Martin Šín <martin.sin@zshk.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -834,8 +835,8 @@ msgstr "%C24,18 Typ  Do/Od    Stav  Velikost    Poz     Soubor         "
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr "%C22*%O$tPřišel zkomolený požadavek DCC od %C26$1%O.%010%C22*%O"
 
 #: src/common/textevents.h:150
@@ -3235,8 +3236,8 @@ msgstr ""
 "pole, tam kde jste stiskli klíčovou sekvenci. Z tohoto důvodu může obsahovat "
 "text (který bude poslán na kanál nebo člověku), příkazy a uživatelské "
 "příkazy. Jakmile to spustíte, všechny znaky \\n v Data 1 jsou použity pro "
-"oddělení příkazů, takže je možné spustit více jak jeden příkaz. Pokud chcete "
-"\\ v aktuálním textu, pak zadejte \\\\"
+"oddělení příkazů, takže je možné spustit více jak jeden příkaz. Pokud chcete "
+"\\ v aktuálním textu, pak zadejte \\\\"
 
 #: src/fe-gtk/fkeys.c:161
 msgid ""

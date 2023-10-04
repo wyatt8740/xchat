@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: Jaesung <jaesung@liberotown.com>\n"
 "Language-Team: Korean <translation-team-ko@lists.sourceforge.net>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -852,8 +853,8 @@ msgstr "%C24,18 형태  송/수신    상태  크기    위치    파일        
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
 "%C22*%O$tDCC 요청을 %C26$1%O로부터 받았습니다.%010%C22*%O$t패킷의 내용: $2"
 
@@ -873,8 +874,8 @@ msgstr "%C22*%O$tDCC 받기%C26 $1%O님으로부터 %C26$2%O 받기가 취소되
 msgid ""
 "%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O."
 msgstr ""
-"%C22*%O$tDCC 받기%C26$3%O님으로부터 %C26$1%O받기 완료 %C30[%C26$4%O cps%C30]%"
-"O."
+"%C22*%O$tDCC 받기%C26$3%O님으로부터 %C26$1%O받기 완료 %C30[%C26$4%O "
+"cps%C30]%O."
 
 #: src/common/textevents.h:162
 msgid "%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]"
@@ -908,8 +909,8 @@ msgstr "%C22*%O$tDCC 보내기%C26$1%O님에게 %C26$2%O 보내기 취소됨."
 msgid ""
 "%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O complete %C30[%C26$3%O cps%C30]%O."
 msgstr ""
-"%C22*%O$tDCC 보내기%C26$2%O님에게 파일 %C26$1%O 보내기 완료 %C30[%C26$3%O cps"
-"%C30]%O."
+"%C22*%O$tDCC 보내기%C26$2%O님에게 파일 %C26$1%O 보내기 완료 %C30[%C26$3%O "
+"cps%C30]%O."
 
 #: src/common/textevents.h:183
 msgid "%C22*%O$tDCC SEND connection established to%C26 $1 %C30[%O$2%C30]"
@@ -1046,8 +1047,8 @@ msgstr "%C23*%O$t%C23$1님(%O%C23$2)께서 대화방 $3에서 퇴장했습니다
 #: src/common/textevents.h:294
 msgid "%C23*%O$t%C23$1 (%O%C23$2) has left $3 (%O%C23%B%B$4%O%C23)"
 msgstr ""
-"%C23*%O$t%C23$1님(%O%C23$2)께서 대화방 $3에서 퇴장했습니다.(%O%C23%B%B$4%O%"
-"C23)"
+"%C23*%O$t%C23$1님(%O%C23$2)께서 대화방 $3에서 퇴장했습니다."
+"(%O%C23%B%B$4%O%C23)"
 
 #: src/common/textevents.h:297
 msgid "%C22*%O$tPing reply from $1: $2 second(s)"

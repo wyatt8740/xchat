@@ -179,9 +179,12 @@ COPYING.LIB-2 gettext.h libgettext.h plural-eval.c libgnuintl.h \
 libgnuintl.h_vms Makefile.vms libgnuintl.h.msvc-static \
 libgnuintl.h.msvc-shared Makefile.msvc
 
-all: all-@USE_INCLUDED_LIBINTL@
+# gettext 0.22 removed this
+# all: all-@USE_INCLUDED_LIBINTL@
+all: all-yes
 all-yes: libintl.$la libintl.h charset.alias ref-add.sed ref-del.sed
-all-no: all-no-@BUILD_INCLUDED_LIBINTL@
+all-no: all-no-yes
+# all-no: all-no-@BUILD_INCLUDED_LIBINTL@
 all-no-yes: libgnuintl.$la
 all-no-no:
 

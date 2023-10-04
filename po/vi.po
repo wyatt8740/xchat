@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2007-06-26 14:57+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -550,8 +551,8 @@ msgstr ""
 #: src/common/outbound.c:3620
 msgid "PING <nick | channel>, CTCP pings nick or channel"
 msgstr ""
-"PING <tên_hiệu | kênh>, thực hiện tiến trình « ping » CTCP với <tên hiêu> hay "
-"<kênh>\n"
+"PING <tên_hiệu | kênh>, thực hiện tiến trình « ping » CTCP với <tên hiêu> "
+"hay <kênh>\n"
 "[Tiến trình ping gửi chỉ một gói tin để thử ra nếu kết nối hoạt động hay "
 "không; nó gửi lại đến khi bạn ngắt nó.]"
 
@@ -795,7 +796,8 @@ msgstr "Đang quay lại đến mấy phục vụ kế tiếp trong %s...\n"
 msgid ""
 "Warning: \"%s\" character set is unknown. No conversion will be applied for "
 "network %s."
-msgstr "Cảnh báo : không biết bộ ký tự « %s » nên không chuyển đổi cho mạng %s."
+msgstr ""
+"Cảnh báo : không biết bộ ký tự « %s » nên không chuyển đổi cho mạng %s."
 
 #: src/common/textevents.h:6
 msgid "%C22*%O$t$1 added to notify list."
@@ -932,8 +934,8 @@ msgstr "%C22*%O$tTrò chuyện trực tiếp (DCC) với %C26$1%O bị hủy b�
 #: src/common/textevents.h:123
 msgid "%C22*%O$tDCC CHAT connection established to %C26$1 %C30[%O$2%C30]"
 msgstr ""
-"%C22*%O$tMới kết nối được để trò chuyện trực tiếp (DCC) với %C26$1 %C30[%O$2%"
-"C30]"
+"%C22*%O$tMới kết nối được để trò chuyện trực tiếp (DCC) với %C26$1 "
+"%C30[%O$2%C30]"
 
 #: src/common/textevents.h:126
 msgid "%C22*%O$tDCC CHAT to %C26$1%O lost ($4)."
@@ -966,11 +968,11 @@ msgstr "%C24,18 Kiểu    Đến/Từ    TrThái  Cỡ     Vị trí    Tệp   
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
-"%C22*%O$tMới nhận yêu cầu dạng sai trò chuyện trực tiếp (DCC) từ %C26$1%O.%"
-"010%C22*%O$tNội dung gói tin: $2"
+"%C22*%O$tMới nhận yêu cầu dạng sai trò chuyện trực tiếp (DCC) từ %C26$1%O."
+"%010%C22*%O$tNội dung gói tin: $2"
 
 #: src/common/textevents.h:150
 msgid "%C22*%O$tOffering%C26 $1%O to%C26 $2"
@@ -3382,12 +3384,12 @@ msgid ""
 "it is possible to run more than one command. If you want a \\ in the actual "
 "text run then enter \\\\"
 msgstr ""
-"Hành động « Chạy lệnh » chạy dữ liệu trong « Dữ liệu 1 » như thế nó đã được gõ "
-"vào hộp nhập nơi bạn đã bấm dãy phím đó. Vì vậy nó có thể bao gồm câu chữ "
+"Hành động « Chạy lệnh » chạy dữ liệu trong « Dữ liệu 1 » như thế nó đã được "
+"gõ vào hộp nhập nơi bạn đã bấm dãy phím đó. Vì vậy nó có thể bao gồm câu chữ "
 "(mà sẽ được gởi cho kênh/người đó), lệnh hay lệnh của người dùng. Khi chạy, "
-"mọi ký tự « \\n » trong « Dữ liệu 1 » được dùng để phân cách những lệnh riêng, "
-"vì thế có thể chạy nhiều lệnh đồng thời. Nếu bạn muốn xem ký tự « \\ » trong "
-"câu thật, hãy gõ « \\\\ » thay thế."
+"mọi ký tự « \\n » trong « Dữ liệu 1 » được dùng để phân cách những lệnh "
+"riêng, vì thế có thể chạy nhiều lệnh đồng thời. Nếu bạn muốn xem ký tự « \\ "
+"» trong câu thật, hãy gõ « \\\\ » thay thế."
 
 #: src/fe-gtk/fkeys.c:161
 msgid ""
@@ -3395,17 +3397,17 @@ msgid ""
 "to the page you want to switch to. If Data 2 is set to anything then the "
 "switch will be relative to the current position"
 msgstr ""
-"Lệnh « Đổi trang » chuyển đổi giữa các trang trong cuốn vở. Hãy đặt « Dữ liệụ "
-"1 » thành trang tới đó bạn muốn chuyển đổi. Nếu « Dữ liêu 2 » được đặt thành "
-"gì, việc chuyển đổi sẽ cân xứng với vị trí hiện có."
+"Lệnh « Đổi trang » chuyển đổi giữa các trang trong cuốn vở. Hãy đặt « Dữ "
+"liệụ 1 » thành trang tới đó bạn muốn chuyển đổi. Nếu « Dữ liêu 2 » được đặt "
+"thành gì, việc chuyển đổi sẽ cân xứng với vị trí hiện có."
 
 #: src/fe-gtk/fkeys.c:163
 msgid ""
 "The Insert in Buffer command will insert the contents of Data 1 into the "
 "entry where the key sequence was pressed at the current cursor position"
 msgstr ""
-"Lệnh « Chèn vào bộ đệm » chèn nội dung của « Dữ liệu 1 » vào trường nơi bạn đã "
-"bấm dãy phím đó, tại vị tri con trỏ hiện có"
+"Lệnh « Chèn vào bộ đệm » chèn nội dung của « Dữ liệu 1 » vào trường nơi bạn "
+"đã bấm dãy phím đó, tại vị tri con trỏ hiện có"
 
 #: src/fe-gtk/fkeys.c:165
 msgid ""
@@ -3424,8 +3426,8 @@ msgid ""
 "The Set Buffer command sets the entry where the key sequence was entered to "
 "the contents of Data 1"
 msgstr ""
-"Lệnh « Đặt bộ đệm » đặt trường nơi dãy phím được nhập thành nội dung của « Dữ "
-"liệu 1 »"
+"Lệnh « Đặt bộ đệm » đặt trường nơi dãy phím được nhập thành nội dung của « "
+"Dữ liệu 1 »"
 
 #: src/fe-gtk/fkeys.c:169
 msgid ""
@@ -3458,8 +3460,8 @@ msgid ""
 "This command scrolls up and down through the list of nicks. If Data 1 is set "
 "to anything it will scroll up, else it scrolls down"
 msgstr ""
-"Lệnh này cuộn lên và xuống danh sách các tên hiệu. Nếu « Dữ liệu 1 » được đặt "
-"thành gì, nó sẽ cuộn lên, nếu không thì nó sẽ cuộn xuống."
+"Lệnh này cuộn lên và xuống danh sách các tên hiệu. Nếu « Dữ liệu 1 » được "
+"đặt thành gì, nó sẽ cuộn lên, nếu không thì nó sẽ cuộn xuống."
 
 #: src/fe-gtk/fkeys.c:177
 msgid ""
@@ -4698,8 +4700,8 @@ msgid ""
 "to execute."
 msgstr ""
 "Lệnh thêm cần thực hiện sau khi kết nối được. Nếu bạn muốn nhập nhiều lệnh, "
-"hãy đặt lệnh này thành « LOAD -e <tên_tập_tin> », mà <tên_tập_tin> là tập tin "
-"kiểu văn bản chứa danh sách các lệnh cần thực hiện. [load: nạp]"
+"hãy đặt lệnh này thành « LOAD -e <tên_tập_tin> », mà <tên_tập_tin> là tập "
+"tin kiểu văn bản chứa danh sách các lệnh cần thực hiện. [load: nạp]"
 
 #: src/fe-gtk/servlistgui.c:1485
 msgid "Nickserv password:"
@@ -5261,8 +5263,8 @@ msgstr "WHOIS khi thông báo"
 #: src/fe-gtk/setup.c:372
 msgid "Sends a /WHOIS when a user comes online in your notify list"
 msgstr ""
-"Gởi lệnh « /WHOIS » (là ai?) khi người dùng trong danh sách thông báo của bạn "
-"mới trực tuyến"
+"Gởi lệnh « /WHOIS » (là ai?) khi người dùng trong danh sách thông báo của "
+"bạn mới trực tuyến"
 
 #: src/fe-gtk/setup.c:373
 msgid "Hide join and part messages"

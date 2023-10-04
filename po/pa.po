@@ -12,6 +12,7 @@ msgstr ""
 "PO-Revision-Date: 2009-04-01 21:38+0000\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi <punjabi-l10n@lists.sourceforge.net>\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -780,8 +781,8 @@ msgstr "%C24,18 ਕਿਸਮ  ਵੱਲ/ਵੱਲੋਂ    ਸਥਿਤੀ  ਅ�
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
 
 #: src/common/textevents.h:150

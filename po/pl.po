@@ -11,6 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2010-03-10 18:15+0100\n"
 "Last-Translator: Michał Trzebiatowski <hippie_1968@hotmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -705,8 +706,8 @@ msgid ""
 "Warning: \"%s\" character set is unknown. No conversion will be applied for "
 "network %s."
 msgstr ""
-"Uwaga: nieznane kodowanie \"%s\". Nie będzie stosowanej konwersji dla sieci %"
-"s."
+"Uwaga: nieznane kodowanie \"%s\". Nie będzie stosowanej konwersji dla sieci "
+"%s."
 
 #: src/common/textevents.h:6
 msgid "%C22*%O$t$1 added to notify list."
@@ -882,11 +883,11 @@ msgstr "%C24,18 Typ  do/z    Stan  Rozmiar    Poz     Plik         "
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
-"%C22*%O$tNadszedł nieprawidłowy wniosek Czatu Bezpośredniego od %C26$1%O.%"
-"010%C22*%O$tZawartość pakietu: $2"
+"%C22*%O$tNadszedł nieprawidłowy wniosek Czatu Bezpośredniego od %C26$1%O."
+"%010%C22*%O$tZawartość pakietu: $2"
 
 #: src/common/textevents.h:150
 msgid "%C22*%O$tOffering%C26 $1%O to%C26 $2"
@@ -906,14 +907,14 @@ msgstr ""
 msgid ""
 "%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O complete %C30[%C26$4%O cps%C30]%O."
 msgstr ""
-"%C22*%O$tOdbieranie%C26 $1%O Czatu Bezpośredniego z%C26 $3%O gotowe %C30[%C26"
-"$4%O cps%C30]%O."
+"%C22*%O$tOdbieranie%C26 $1%O Czatu Bezpośredniego z%C26 $3%O gotowe "
+"%C30[%C26$4%O cps%C30]%O."
 
 #: src/common/textevents.h:162
 msgid "%C22*%O$tDCC RECV connection established to%C26 $1 %C30[%O$2%C30]"
 msgstr ""
-"%C22*%O$tPołączenie odbierania Czatu Bezpośredniego zrealizowane do%C26 $1 %"
-"C30[%O$2%C30]"
+"%C22*%O$tPołączenie odbierania Czatu Bezpośredniego zrealizowane do%C26 $1 "
+"%C30[%O$2%C30]"
 
 #: src/common/textevents.h:165
 msgid "%C22*%O$tDCC RECV%C26 $1%O from%C26 $3%O failed ($4)."
@@ -948,14 +949,14 @@ msgstr ""
 msgid ""
 "%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O complete %C30[%C26$3%O cps%C30]%O."
 msgstr ""
-"%C22*%O$tWysyłanie%C26 $1%O Czatu Bezpośredniego do%C26 $2%O gotowe %C30[%C26"
-"$4%O cps%C30]%O."
+"%C22*%O$tWysyłanie%C26 $1%O Czatu Bezpośredniego do%C26 $2%O gotowe "
+"%C30[%C26$4%O cps%C30]%O."
 
 #: src/common/textevents.h:183
 msgid "%C22*%O$tDCC SEND connection established to%C26 $1 %C30[%O$2%C30]"
 msgstr ""
-"%C22*%O$tPołączenie wysyłania Czatu Bezpośredniego zrealizowane z%C26 $1 %C30"
-"[%O$2%C30]"
+"%C22*%O$tPołączenie wysyłania Czatu Bezpośredniego zrealizowane z%C26 $1 "
+"%C30[%O$2%C30]"
 
 #: src/common/textevents.h:186
 msgid "%C22*%O$tDCC SEND%C26 $1%O to%C26 $2%O failed. $3"
@@ -1022,8 +1023,8 @@ msgstr ""
 #: src/common/textevents.h:231
 msgid "%C22*%O$tYou have been invited to%C26 $1%O by%C26 $2%C (%C26$3%C)"
 msgstr ""
-"%C22*%O$tOtrzymałeś/aś zaproszenie do pokoju%C26 $1%O od użytkownika%C26 $2%"
-"C (%C26$3%C)"
+"%C22*%O$tOtrzymałeś/aś zaproszenie do pokoju%C26 $1%O od użytkownika%C26 "
+"$2%C (%C26$3%C)"
 
 #: src/common/textevents.h:234
 msgid "%C19*%O$t%C19%B$1 %B($3) has joined $2"
@@ -1193,8 +1194,8 @@ msgstr "%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4"
 #: src/common/textevents.h:393
 msgid "%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3"
 msgstr ""
-"%C22*%O$t%C28[%O$1%C28] %Oprawdziwy user@host%C27 $2%O, prawdziwy adres IP%"
-"C27 $3"
+"%C22*%O$t%C28[%O$1%C28] %Oprawdziwy user@host%C27 $2%O, prawdziwy adres "
+"IP%C27 $3"
 
 #: src/common/textevents.h:402
 msgid "%C19*%O$t%C19Now talking on $2"

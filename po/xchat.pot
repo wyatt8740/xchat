@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xchat 2.8.8\n"
 "Report-Msgid-Bugs-To: www.xchat.org\n"
-"POT-Creation-Date: 2010-05-30 13:56+1000\n"
+"POT-Creation-Date: 2023-10-04 14:45-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,15 +20,15 @@ msgstr ""
 msgid "Cannot create ~/.xchat2"
 msgstr ""
 
-#: src/common/cfgfiles.c:713
+#: src/common/cfgfiles.c:715
 msgid "I'm busy"
 msgstr ""
 
-#: src/common/cfgfiles.c:714
+#: src/common/cfgfiles.c:716
 msgid "Leaving"
 msgstr ""
 
-#: src/common/cfgfiles.c:761
+#: src/common/cfgfiles.c:763
 msgid ""
 "* Running IRC as root is stupid! You should\n"
 "  create a User Account and use that to login.\n"
@@ -89,22 +90,22 @@ msgstr ""
 msgid "NO   "
 msgstr ""
 
-#: src/common/ignore.c:377
+#: src/common/ignore.c:395
 #, c-format
 msgid "You are being CTCP flooded from %s, ignoring %s\n"
 msgstr ""
 
-#: src/common/ignore.c:402
+#: src/common/ignore.c:420
 #, c-format
 msgid "You are being MSG flooded from %s, setting gui_auto_open_dialog OFF.\n"
 msgstr ""
 
-#: src/common/notify.c:473
+#: src/common/notify.c:495
 #, c-format
 msgid "  %-20s online\n"
 msgstr ""
 
-#: src/common/notify.c:475
+#: src/common/notify.c:497
 #, c-format
 msgid "  %-20s offline\n"
 msgstr ""
@@ -566,27 +567,27 @@ msgstr ""
 msgid "No xchat_plugin_init symbol; is this really an xchat plugin?"
 msgstr ""
 
-#: src/common/server.c:634
+#: src/common/server.c:646
 msgid "Are you sure this is a SSL capable server and port?\n"
 msgstr ""
 
-#: src/common/server.c:1025
+#: src/common/server.c:1045
 #, c-format
 msgid ""
 "Cannot resolve hostname %s\n"
 "Check your IP Settings!\n"
 msgstr ""
 
-#: src/common/server.c:1030
+#: src/common/server.c:1050
 msgid "Proxy traversal failed.\n"
 msgstr ""
 
-#: src/common/servlist.c:667
+#: src/common/servlist.c:673
 #, c-format
 msgid "Cycling to next server in %s...\n"
 msgstr ""
 
-#: src/common/servlist.c:1118
+#: src/common/servlist.c:1125
 #, c-format
 msgid ""
 "Warning: \"%s\" character set is unknown. No conversion will be applied for "
@@ -760,8 +761,8 @@ msgstr ""
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
 
 #: src/common/textevents.h:150
@@ -1150,13 +1151,13 @@ msgstr ""
 msgid "Nick of person who changed the topic"
 msgstr ""
 
-#: src/common/text.c:998 src/common/text.c:1004 src/fe-gtk/chanlist.c:766
-#: src/fe-gtk/chanlist.c:869
+#: src/common/text.c:998 src/common/text.c:1004 src/fe-gtk/chanlist.c:800
+#: src/fe-gtk/chanlist.c:903
 msgid "Topic"
 msgstr ""
 
 #: src/common/text.c:999 src/common/text.c:1003 src/common/text.c:1440
-#: src/fe-gtk/chanlist.c:764 src/fe-gtk/ignoregui.c:174
+#: src/fe-gtk/chanlist.c:798 src/fe-gtk/ignoregui.c:175
 #: src/fe-gtk/servlistgui.c:896
 msgid "Channel"
 msgstr ""
@@ -1419,7 +1420,7 @@ msgstr ""
 msgid "Nick of person who invited you"
 msgstr ""
 
-#: src/common/text.c:1252 src/fe-gtk/chanlist.c:765
+#: src/common/text.c:1252 src/fe-gtk/chanlist.c:799
 msgid "Users"
 msgstr ""
 
@@ -1542,7 +1543,7 @@ msgid ""
 "Loading default."
 msgstr ""
 
-#: src/common/text.c:2225
+#: src/common/text.c:2270
 #, c-format
 msgid ""
 "Cannot read sound file:\n"
@@ -2617,127 +2618,127 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: src/common/xchat.c:726
+#: src/common/xchat.c:728
 msgid "_Open Dialog Window"
 msgstr ""
 
-#: src/common/xchat.c:727
+#: src/common/xchat.c:729
 msgid "_Send a File"
 msgstr ""
 
-#: src/common/xchat.c:728
+#: src/common/xchat.c:730
 msgid "_User Info (WhoIs)"
 msgstr ""
 
-#: src/common/xchat.c:729
+#: src/common/xchat.c:731
 msgid "_Add to Friends List"
 msgstr ""
 
-#: src/common/xchat.c:730
+#: src/common/xchat.c:732
 msgid "O_perator Actions"
 msgstr ""
 
-#: src/common/xchat.c:732
+#: src/common/xchat.c:734
 msgid "Give Ops"
 msgstr ""
 
-#: src/common/xchat.c:733
+#: src/common/xchat.c:735
 msgid "Take Ops"
 msgstr ""
 
-#: src/common/xchat.c:734
+#: src/common/xchat.c:736
 msgid "Give Voice"
 msgstr ""
 
-#: src/common/xchat.c:735
+#: src/common/xchat.c:737
 msgid "Take Voice"
 msgstr ""
 
-#: src/common/xchat.c:737
+#: src/common/xchat.c:739
 msgid "Kick/Ban"
 msgstr ""
 
-#: src/common/xchat.c:738 src/common/xchat.c:775
+#: src/common/xchat.c:740 src/common/xchat.c:777
 msgid "Kick"
 msgstr ""
 
-#: src/common/xchat.c:739 src/common/xchat.c:740 src/common/xchat.c:741
-#: src/common/xchat.c:742 src/common/xchat.c:743 src/common/xchat.c:774
+#: src/common/xchat.c:741 src/common/xchat.c:742 src/common/xchat.c:743
+#: src/common/xchat.c:744 src/common/xchat.c:745 src/common/xchat.c:776
 msgid "Ban"
 msgstr ""
 
-#: src/common/xchat.c:744 src/common/xchat.c:745 src/common/xchat.c:746
-#: src/common/xchat.c:747
+#: src/common/xchat.c:746 src/common/xchat.c:747 src/common/xchat.c:748
+#: src/common/xchat.c:749
 msgid "KickBan"
 msgstr ""
 
-#: src/common/xchat.c:757
+#: src/common/xchat.c:759
 msgid "Leave Channel"
 msgstr ""
 
-#: src/common/xchat.c:758
+#: src/common/xchat.c:760
 msgid "Join Channel..."
 msgstr ""
 
-#: src/common/xchat.c:759 src/fe-gtk/menu.c:1295
+#: src/common/xchat.c:761 src/fe-gtk/menu.c:1295
 msgid "Enter Channel to Join:"
 msgstr ""
 
-#: src/common/xchat.c:760
+#: src/common/xchat.c:762
 msgid "Server Links"
 msgstr ""
 
-#: src/common/xchat.c:761
+#: src/common/xchat.c:763
 msgid "Ping Server"
 msgstr ""
 
-#: src/common/xchat.c:762
+#: src/common/xchat.c:764
 msgid "Hide Version"
 msgstr ""
 
-#: src/common/xchat.c:772
+#: src/common/xchat.c:774
 msgid "Op"
 msgstr ""
 
-#: src/common/xchat.c:773
+#: src/common/xchat.c:775
 msgid "DeOp"
 msgstr ""
 
-#: src/common/xchat.c:776
+#: src/common/xchat.c:778
 msgid "bye"
 msgstr ""
 
-#: src/common/xchat.c:777
+#: src/common/xchat.c:779
 #, c-format
 msgid "Enter reason to kick %s:"
 msgstr ""
 
-#: src/common/xchat.c:778
+#: src/common/xchat.c:780
 msgid "Sendfile"
 msgstr ""
 
-#: src/common/xchat.c:779
+#: src/common/xchat.c:781
 msgid "Dialog"
 msgstr ""
 
-#: src/common/xchat.c:788
+#: src/common/xchat.c:790
 msgid "WhoIs"
 msgstr ""
 
-#: src/common/xchat.c:789
+#: src/common/xchat.c:791
 msgid "Send"
 msgstr ""
 
-#: src/common/xchat.c:790
+#: src/common/xchat.c:792
 msgid "Chat"
 msgstr ""
 
-#: src/common/xchat.c:791 src/fe-gtk/banlist.c:411 src/fe-gtk/ignoregui.c:387
-#: src/fe-gtk/urlgrab.c:199
+#: src/common/xchat.c:793 src/fe-gtk/banlist.c:411 src/fe-gtk/ignoregui.c:388
+#: src/fe-gtk/urlgrab.c:222
 msgid "Clear"
 msgstr ""
 
-#: src/common/xchat.c:792
+#: src/common/xchat.c:794
 msgid "Ping"
 msgstr ""
 
@@ -2784,7 +2785,7 @@ msgid "Character Chart"
 msgstr ""
 
 #: src/fe-gtk/banlist.c:149 src/fe-gtk/chanlist.c:305
-#: src/fe-gtk/plugin-tray.c:304
+#: src/fe-gtk/plugin-tray.c:299
 msgid "Not connected."
 msgstr ""
 
@@ -2797,7 +2798,7 @@ msgstr ""
 msgid "Are you sure you want to remove all bans in %s?"
 msgstr ""
 
-#: src/fe-gtk/banlist.c:342 src/fe-gtk/ignoregui.c:173
+#: src/fe-gtk/banlist.c:342 src/fe-gtk/ignoregui.c:174
 msgid "Mask"
 msgstr ""
 
@@ -2835,80 +2836,80 @@ msgstr ""
 msgid "Displaying %d/%d users on %d/%d channels."
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:526 src/fe-gtk/menu.c:1231 src/fe-gtk/urlgrab.c:146
+#: src/fe-gtk/chanlist.c:560 src/fe-gtk/menu.c:1231 src/fe-gtk/urlgrab.c:169
 msgid "Select an output filename"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:631 src/fe-gtk/chanlist.c:799
+#: src/fe-gtk/chanlist.c:665 src/fe-gtk/chanlist.c:833
 msgid "_Join Channel"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:633
+#: src/fe-gtk/chanlist.c:667
 msgid "_Copy Channel Name"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:635
+#: src/fe-gtk/chanlist.c:669
 msgid "Copy _Topic Text"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:724
+#: src/fe-gtk/chanlist.c:758
 #, c-format
 msgid "XChat: Channel List (%s)"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:781
+#: src/fe-gtk/chanlist.c:815
 msgid "_Search"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:787
+#: src/fe-gtk/chanlist.c:821
 msgid "_Download List"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:793
+#: src/fe-gtk/chanlist.c:827
 msgid "Save _List..."
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:806
+#: src/fe-gtk/chanlist.c:840
 msgid "Show only:"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:818
+#: src/fe-gtk/chanlist.c:852
 msgid "channels with"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:831
+#: src/fe-gtk/chanlist.c:865
 msgid "to"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:843
+#: src/fe-gtk/chanlist.c:877
 msgid "users."
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:849
+#: src/fe-gtk/chanlist.c:883
 msgid "Look in:"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:861
+#: src/fe-gtk/chanlist.c:895
 msgid "Channel name"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:882
+#: src/fe-gtk/chanlist.c:916
 msgid "Search type:"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:889
+#: src/fe-gtk/chanlist.c:923
 msgid "Simple Search"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:890
+#: src/fe-gtk/chanlist.c:924
 msgid "Pattern Match (Wildcards)"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:892
+#: src/fe-gtk/chanlist.c:926
 msgid "Regular Expression"
 msgstr ""
 
-#: src/fe-gtk/chanlist.c:903 src/fe-gtk/search.c:125
+#: src/fe-gtk/chanlist.c:937 src/fe-gtk/search.c:125
 msgid "Find:"
 msgstr ""
 
@@ -3019,44 +3020,44 @@ msgstr ""
 msgid "EDIT ME"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:310 src/fe-gtk/notifygui.c:135
+#: src/fe-gtk/editlist.c:336 src/fe-gtk/notifygui.c:135
 #: src/fe-gtk/plugingui.c:71
 msgid "Name"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:311
+#: src/fe-gtk/editlist.c:337
 msgid "Command"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:339
+#: src/fe-gtk/editlist.c:365
 msgid "Move Up"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:343
+#: src/fe-gtk/editlist.c:369
 msgid "Move Dn"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:351
+#: src/fe-gtk/editlist.c:377
 msgid "Cancel"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:355
+#: src/fe-gtk/editlist.c:381
 msgid "Save"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:363 src/fe-gtk/fkeys.c:765
+#: src/fe-gtk/editlist.c:389 src/fe-gtk/fkeys.c:765
 msgid "Add New"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:367 src/fe-gtk/fkeys.c:770 src/fe-gtk/ignoregui.c:385
+#: src/fe-gtk/editlist.c:393 src/fe-gtk/fkeys.c:770 src/fe-gtk/ignoregui.c:386
 msgid "Delete"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:375
+#: src/fe-gtk/editlist.c:401
 msgid "Sort"
 msgstr ""
 
-#: src/fe-gtk/editlist.c:379
+#: src/fe-gtk/editlist.c:405
 msgid "Help"
 msgstr ""
 
@@ -3259,25 +3260,25 @@ msgstr ""
 msgid "Data 2"
 msgstr ""
 
-#: src/fe-gtk/fkeys.c:852
+#: src/fe-gtk/fkeys.c:863
 msgid "Error opening keys config file\n"
 msgstr ""
 
-#: src/fe-gtk/fkeys.c:1019
+#: src/fe-gtk/fkeys.c:1068
 #, c-format
 msgid ""
 "Unknown keyname %s in key bindings config file\n"
 "Load aborted, please fix %s/keybindings.conf\n"
 msgstr ""
 
-#: src/fe-gtk/fkeys.c:1057
+#: src/fe-gtk/fkeys.c:1106
 #, c-format
 msgid ""
 "Unknown action %s in key bindings config file\n"
 "Load aborted, Please fix %s/keybindings\n"
 msgstr ""
 
-#: src/fe-gtk/fkeys.c:1078
+#: src/fe-gtk/fkeys.c:1127
 #, c-format
 msgid ""
 "Expecting Data line (beginning Dx{:|!}) but got:\n"
@@ -3286,7 +3287,7 @@ msgid ""
 "Load aborted, Please fix %s/keybindings\n"
 msgstr ""
 
-#: src/fe-gtk/fkeys.c:1147
+#: src/fe-gtk/fkeys.c:1196
 #, c-format
 msgid ""
 "Key bindings config file is corrupt, load aborted\n"
@@ -3301,67 +3302,67 @@ msgstr ""
 msgid "Cannot read that file."
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:115 src/fe-gtk/ignoregui.c:262
+#: src/fe-gtk/ignoregui.c:116 src/fe-gtk/ignoregui.c:263
 msgid "That mask already exists."
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:175 src/fe-gtk/maingui.c:2139
+#: src/fe-gtk/ignoregui.c:176 src/fe-gtk/maingui.c:2139
 msgid "Private"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:176
+#: src/fe-gtk/ignoregui.c:177
 msgid "Notice"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:177
+#: src/fe-gtk/ignoregui.c:178
 msgid "CTCP"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:178
+#: src/fe-gtk/ignoregui.c:179
 msgid "DCC"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:179
+#: src/fe-gtk/ignoregui.c:180
 msgid "Invite"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:180
+#: src/fe-gtk/ignoregui.c:181
 msgid "Unignore"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:306
+#: src/fe-gtk/ignoregui.c:307
 msgid "Enter mask to ignore:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:353
+#: src/fe-gtk/ignoregui.c:354
 msgid "XChat: Ignore list"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:360
+#: src/fe-gtk/ignoregui.c:361
 msgid "Ignore Stats:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:368
+#: src/fe-gtk/ignoregui.c:369
 msgid "Channel:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:369
+#: src/fe-gtk/ignoregui.c:370
 msgid "Private:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:370
+#: src/fe-gtk/ignoregui.c:371
 msgid "Notice:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:371
+#: src/fe-gtk/ignoregui.c:372
 msgid "CTCP:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:372
+#: src/fe-gtk/ignoregui.c:373
 msgid "Invite:"
 msgstr ""
 
-#: src/fe-gtk/ignoregui.c:383 src/fe-gtk/notifygui.c:426
+#: src/fe-gtk/ignoregui.c:384 src/fe-gtk/notifygui.c:426
 msgid "Add..."
 msgstr ""
 
@@ -3805,7 +3806,7 @@ msgstr ""
 msgid "_Load Plugin or Script..."
 msgstr ""
 
-#: src/fe-gtk/menu.c:1587 src/fe-gtk/plugin-tray.c:610
+#: src/fe-gtk/menu.c:1587 src/fe-gtk/plugin-tray.c:605
 msgid "_Quit"
 msgstr ""
 
@@ -4050,89 +4051,89 @@ msgstr ""
 msgid "Open Dialog"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:250
+#: src/fe-gtk/plugin-tray.c:245
 msgid ""
 "Cannot find 'notify-send' to open balloon alerts.\n"
 "Please install libnotify."
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:301
+#: src/fe-gtk/plugin-tray.c:296
 #, c-format
 msgid "XChat: Connected to %u networks and %u channels"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:589
+#: src/fe-gtk/plugin-tray.c:584
 msgid "_Restore"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:591
+#: src/fe-gtk/plugin-tray.c:586
 msgid "_Hide"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:594
+#: src/fe-gtk/plugin-tray.c:589
 msgid "_Blink on"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:595 src/fe-gtk/setup.c:479
+#: src/fe-gtk/plugin-tray.c:590 src/fe-gtk/setup.c:479
 msgid "Channel Message"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:596 src/fe-gtk/setup.c:480
+#: src/fe-gtk/plugin-tray.c:591 src/fe-gtk/setup.c:480
 msgid "Private Message"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:597 src/fe-gtk/setup.c:481
+#: src/fe-gtk/plugin-tray.c:592 src/fe-gtk/setup.c:481
 msgid "Highlighted Message"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:600
+#: src/fe-gtk/plugin-tray.c:595
 msgid "_Change status"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:602
+#: src/fe-gtk/plugin-tray.c:597
 msgid "_Away"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:605
+#: src/fe-gtk/plugin-tray.c:600
 msgid "_Back"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:654 src/fe-gtk/plugin-tray.c:662
+#: src/fe-gtk/plugin-tray.c:649 src/fe-gtk/plugin-tray.c:657
 #, c-format
 msgid "XChat: Highlighted message from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:657
+#: src/fe-gtk/plugin-tray.c:652
 #, c-format
 msgid "XChat: %u highlighted messages, latest from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:680 src/fe-gtk/plugin-tray.c:687
+#: src/fe-gtk/plugin-tray.c:675 src/fe-gtk/plugin-tray.c:682
 #, c-format
 msgid "XChat: New public message from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:683
+#: src/fe-gtk/plugin-tray.c:678
 #, c-format
 msgid "XChat: %u new public messages."
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:709 src/fe-gtk/plugin-tray.c:716
+#: src/fe-gtk/plugin-tray.c:704 src/fe-gtk/plugin-tray.c:711
 #, c-format
 msgid "XChat: Private message from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:712
+#: src/fe-gtk/plugin-tray.c:707
 #, c-format
 msgid "XChat: %u private messages, latest from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:762 src/fe-gtk/plugin-tray.c:770
+#: src/fe-gtk/plugin-tray.c:757 src/fe-gtk/plugin-tray.c:765
 #, c-format
 msgid "XChat: File offer from: %s (%s)"
 msgstr ""
 
-#: src/fe-gtk/plugin-tray.c:765
+#: src/fe-gtk/plugin-tray.c:760
 #, c-format
 msgid "XChat: %u file offers, latest from: %s (%s)"
 msgstr ""
@@ -4162,7 +4163,7 @@ msgid "_UnLoad"
 msgstr ""
 
 #: src/fe-gtk/rawlog.c:79 src/fe-gtk/rawlog.c:128 src/fe-gtk/textgui.c:438
-#: src/fe-gtk/urlgrab.c:203
+#: src/fe-gtk/urlgrab.c:226
 msgid "Save As..."
 msgstr ""
 
@@ -5238,23 +5239,23 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: src/fe-gtk/urlgrab.c:186
+#: src/fe-gtk/urlgrab.c:209
 msgid "XChat: URL Grabber"
 msgstr ""
 
-#: src/fe-gtk/urlgrab.c:199
+#: src/fe-gtk/urlgrab.c:222
 msgid "Clear list"
 msgstr ""
 
-#: src/fe-gtk/urlgrab.c:201
+#: src/fe-gtk/urlgrab.c:224
 msgid "Copy selected URL"
 msgstr ""
 
-#: src/fe-gtk/urlgrab.c:201
+#: src/fe-gtk/urlgrab.c:224
 msgid "Copy"
 msgstr ""
 
-#: src/fe-gtk/urlgrab.c:203
+#: src/fe-gtk/urlgrab.c:226
 msgid "Save list to a file"
 msgstr ""
 

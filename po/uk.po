@@ -14,11 +14,12 @@ msgstr ""
 "PO-Revision-Date: 2009-10-17 13:32+0300\n"
 "Last-Translator: Sergey Tereschenko <serg.partizan@gmail.com>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/common/cfgfiles.c:354
 msgid "Cannot create ~/.xchat2"
@@ -867,8 +868,8 @@ msgstr "%C24,18 Тип  Кому/Від кого  Статус  Розмір  П
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
 "%C22*%O$tОтримано неправильний DCC запит від %C26$1%O.%010%C22*%O$tВміст "
 "пакета: $2"
@@ -1151,8 +1152,8 @@ msgstr "%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4"
 #: src/common/textevents.h:393
 msgid "%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3"
 msgstr ""
-"%C22*%O$t%C28[%O$1%C28] %Oсправжній користувач@вузол %C27$2%O, справжній IP %"
-"C27$3"
+"%C22*%O$t%C28[%O$1%C28] %Oсправжній користувач@вузол %C27$2%O, справжній IP "
+"%C27$3"
 
 #: src/common/textevents.h:402
 msgid "%C19*%O$t%C19Now talking on $2"
@@ -3266,8 +3267,8 @@ msgid ""
 msgstr ""
 "Дія Виконати команду виконує Дані 1 як команду, ніби її було введено в полі "
 "вводу, в якому було натиснуто послідовність клавіш. Може містити текст (який "
-"буде надіслано до каналу/особи), команди або команди користувача. Символи "
-"\\n в Дані 1 використовуються для відокремлення команд, таким чином можливо "
+"буде надіслано до каналу/особи), команди або команди користувача. Символи "
+"\\n в Дані 1 використовуються для відокремлення команд, таким чином можливо "
 "надсилати більш ніж одну команду. Якщо бажаєте ввести \\ в тексті команди, "
 "напишіть \\\\"
 

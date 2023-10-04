@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2010-04-24 23:27+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -861,11 +862,11 @@ msgstr "%C24,18 Typ   Till/Från  Status  Storlek Pos     Fil          "
 
 #: src/common/textevents.h:147
 msgid ""
-"%C22*%O$tReceived a malformed DCC request from %C26$1%O.%010%C22*%O"
-"$tContents of packet: $2"
+"%C22*%O$tReceived a malformed DCC request from %C26$1%O."
+"%010%C22*%O$tContents of packet: $2"
 msgstr ""
-"%C22*%O$tMottog en felaktigt utformad DCC-begäran från %C26$1%O.%010%C22*%O"
-"$tPaketets innehåll: $2"
+"%C22*%O$tMottog en felaktigt utformad DCC-begäran från %C26$1%O."
+"%010%C22*%O$tPaketets innehåll: $2"
 
 #: src/common/textevents.h:150
 msgid "%C22*%O$tOffering%C26 $1%O to%C26 $2"
